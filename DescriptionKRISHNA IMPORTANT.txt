@@ -1,0 +1,41 @@
+Steps am going through to create this project
+
+-------------------------
+1)  
+
+Created a route towards the login page (login.blade.php)
+
+-------------------------
+
+2)  
+
+Created a wrapper called master.blade.php which would include headers and footers (we place this in the view folder)
+
+-------------------------
+
+3) 
+
+we include the wrapper to the login.blade.php by using '@extends('pageName')'
+we can also use part of that wrapper by using '@section('content')' and '@endsection' to end the section
+
+we can use '@yield('content')' from the source page
+
+-------------------------
+
+4)
+
+Added Bootstrap cdn and removed optional theme
+
+bootstrap version 3.3.7 used in GardenDoctors project
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+-------------------------
+
+5)
+

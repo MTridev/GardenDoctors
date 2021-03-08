@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
+
+
+//To use the Usercontroller, UserController is imported
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 
 // Here the login page is called, where the route is blanke
 
-Route::view("/","login");
+Route::get('/login', function () {
+    return view('login');
+});
+
+
+Route::post('/login',[UserController::class, 'login']);
+Route::get('/',[ProductController::class, 'index']);

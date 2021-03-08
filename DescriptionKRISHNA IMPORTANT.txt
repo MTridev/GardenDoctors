@@ -128,3 +128,25 @@ php artisan db:seed --class=User_Seeder
 -------------------------
 
 8) 
+
+to make a new controller called UserController, type this:
+
+        php artisan make:controller UserController
+
+
+-------------------------
+
+9) 
+
+created another controller to 
+php artisan make:controller ProductController
+
+we need to create a middleware so as the user cannot
+login again after a successful login
+
+we can create a middleware like this command:
+php artisan make:middleware UserAuth
+
+we would need to register this middleware to the kernel.php though
+
+i added the session as well in the kernel.php

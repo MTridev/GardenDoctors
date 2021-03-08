@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB; # For adding fake data
 class DatabaseSeeder extends Seeder
 {
     /**

@@ -37,5 +37,94 @@ bootstrap version 3.3.7 used in GardenDoctors project
 
 -------------------------
 
-5)
+-------------------------
 
+5) 
+
+Installed phpmyadmin with sudo apt install phpmyadmin
+Then install mysql-server with sudo apt install mysql-server
+
+Mistaken setup down below
+sudo mysql_secure_installation whereby the the password is set("password is : Password@@*98")
+
+to create a mysql user do this
+sudo​ mysql -u root
+CREATE​ USER 'your_user' IDENTIFIED BY 'your_password';
+
+in my case
+
+CREATE USER 'db_user_krishna'@'localhost' IDENTIFIED BY 'pa**wORd98';
+GRANT ALL PRIVILEGES ON * . * TO 'db_user_krishna'@'localhost';
+FLUSH PRIVILEGES;
+
+
+and close mysql 
+
+
+
+
+6) Create a new database with the help of phpmyadmin, then go to GardenDoctors
+    Project and go to .env file and set database DB_PASSWORD
+
+    Deleted the original migration files
+
+    then to make new migration file do this:
+    php artisan make:migration create_users_table
+
+    and inside the folder database -> migrations , u 
+    will find the migration file with the name by the
+    timestamp.  Here you can add define which fields
+    you want to add by adding details to the schema part
+
+For example
+
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique;
+
+and enjoy a migration of database by; php artisan migrate
+
+
+
+
+
+-------------------------
+
+7) 
+
+create a Seeder called User_Seeder
+php artisan make:seeder User_Seeder
+
+then add         
+        DB::table('users')->insert([
+            'name' => 'moothoorTridev',
+            'email' => 'mthr@gmail.com',
+            'password' => Hash::make('12345')
+        ]); 
+
+        to the User_Seeder.php
+
+
+then type the command: 
+
+php artisan db:seed --class=User_Seeder
+(the above command would send the inputed data such also
+
+moothoorTridev , mthr@gmail.com ...etc into the Databse)
+
+u can keep changing the User_Seeder 
+
+        DB::table('users')->insert([
+            'name' => 'jacob',
+            'email' => 'jacob@gmail.com',
+            'password' => Hash::make('12345')
+        ]);
+
+and then press the command:
+
+php artisan db:seed --class=User_Seeder
+
+-------------------------
+
+8) 

@@ -15,7 +15,7 @@ class User_Seeder extends Seeder
      */
     public function run()
     {
-        //
+        // entry of this data towards the database
         DB::table('users')->insert([
             'name' => 'jacob',
             'email' => 'jacob@gmail.com',

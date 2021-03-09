@@ -148,5 +148,51 @@ we can create a middleware like this command:
 php artisan make:middleware UserAuth
 
 we would need to register this middleware to the kernel.php though
-
 i added the session as well in the kernel.php
+
+-------------------------
+
+10)
+
+product table migration and seeding
+
+created the product table with this command
+php artisan make:migration create_products_table
+
+
+then created the seeder by:
+
+php artisan make:seeder Product_Seeder
+
+
+then seeded the database with this command:
+
+php artisan db:seed --class --class=Product_Seeder
+
+we can have entries of multiple products throught the Product_Seeder by using this type of structure below
+        // entry of this data towards the database
+        DB::table('products')->insert([
+            [
+                'name' => 'Long Garden Fork',
+                'price' => '2000',
+                'category' => 'fork',
+                'gallery' => 'https://www.thegardenshop.ie/images/detailed/2/long-handled-garden-fork-a.jpg',
+                'description' => 'Long Handled Garden fork',
+            ],
+            [
+                'name' => 'Short Garden Fork',
+                'price' => '700',
+                'category' => 'fork',
+                'gallery' => 'https://www.thegardenshop.ie/images/detailed/2/short-handled-garden-fork.jpg',
+                'description' => 'Short Handled Garden fork',
+            ],
+        ]);
+
+
+        and just seed this thang by:
+        php artisan db:seed --class --class=Product_Seeder
+
+
+-------------------------
+
+11) 

@@ -37,12 +37,26 @@
         height: 350px !important;
     }
     .customized-product{
-        height: 800px;
+        height: 650px;
     }
 
     .slider-text{
         background-color: #2a9d8f;
         opacity: 0.8;
+    }
+
+    .trending-img{
+        height: 100px;
+    }
+
+    .trending-images{
+        float: left;
+        width: 16.5%;
+
+    }
+
+    .trending-block{
+        margin: 5%;
     }
     
 

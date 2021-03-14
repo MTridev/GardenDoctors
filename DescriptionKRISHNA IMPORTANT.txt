@@ -231,3 +231,29 @@ I did that by adding the <a> tag inside the @foreach loop
 
 then i created a detail.blade.php and copied all footer and 
 header 
+
+
+-------------------------
+
+12) Making search page to work
+
+
+created a route inside web.php
+Route::get("search",[ProductController::class,'search']);
+
+then added the function search to the controller
+    function search(Request $req)
+    {
+
+        return $data = Product::
+        where('name', 'like', '%'.$req->input('searchInputBox'). '%')->get();
+    }
+
+went to the header.blade.php and configured the text input to
+'searchInputBox' and the form action to '/search' page
+
+<form action="/search" class="navbar-form navbar-left">
+    <div class="form-group">
+        <input type="text" name="searchInputBox"
+
+

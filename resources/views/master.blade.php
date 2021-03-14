@@ -22,7 +22,7 @@
     {{ View:: make('header')}}  
     @yield('content')
 
-<!-- We made the view called header from header.blade.php -->
+<!-- We made the view called header from footer.blade.php -->
 
     {{ View:: make('footer')}}  
 
@@ -62,7 +62,9 @@
         height: 300px !important;
 
     }
-    
+    .search-box{ 
+        width: 450px !important;
+    }
 
 </style>
 

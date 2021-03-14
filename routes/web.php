@@ -20,12 +20,11 @@ use App\Http\Controllers\ProductController;
 
 
 
-// Here the login page is called, where the route is blanke
-
-Route::get('/login', function () {
-    return view('login');
-});
+// Below are the routes and their relative function name
+// e.g detail/{id} route and its function name detail
 
 
-Route::post('/login',[UserController::class, 'login']);
-Route::get('/',[ProductController::class, 'index']);
+Route::view("/login","login");
+Route::post("login",[UserController::class,'login']);
+Route::get("/",[ProductController::class,'index']);
+Route::get("detail/{id}",[ProductController::class,'detail']);

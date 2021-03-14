@@ -58,6 +58,10 @@
     .trending-block{
         margin: 5%;
     }
+    .img-productDetail{
+        height: 300px !important;
+
+    }
     
 
 </style>

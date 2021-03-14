@@ -195,4 +195,39 @@ we can have entries of multiple products throught the Product_Seeder by using th
 
 -------------------------
 
-11) 
+11) Product Detail page
+
+
+Created a route towards localhost/detail/{id}
+name that function detail
+
+Route::get("detail/{id}",[ProductController::class,'detail']);
+
+
+then i set up its controller to fetch data from database
+i did that by adding the function into the ProductCOntroller
+
+    function detail($id)
+    {
+        return Product::find($id);
+    }
+
+
+then went to the view page of product.blade.php to add the
+different links for each of the images and its details, which 
+would help redirect the user to the detail/{id} page
+after clicking on the carousel's images
+
+I did that by adding the <a> tag inside the @foreach loop
+
+        <a href="detail/{{$item['id']}}">
+          <img class="carousel-img" src="{{$item['gallery']}}" alt="Chania">
+          <div class="carousel-caption slider-text">
+            <h3>{{$item['name']}}</h3>
+            <p>{{$item['description']}}</p>
+          </div>
+        </a>
+
+
+then i created a detail.blade.php and copied all footer and 
+header 

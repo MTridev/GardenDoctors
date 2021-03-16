@@ -365,3 +365,48 @@ and added these lines to the ProductController
 
 and now on adding add to cart to a product, the product goes to
 the cart
+
+
+-------------------------
+
+15) completion of add to cart(display of number of items in cart)
+
+created this function in ProductController
+
+    static function cartItem()
+    {
+        $userId = Session::get('user')['id'];
+        return Cart::where('user_id',$userId)->count();
+    }
+
+this function is the counting of the number of entries
+in the Cart model with the user_id 
+
+and to use it i imported
+
+use Session;
+
+
+
+
+
+then i added this text to the header.blade.php, to use
+the session
+
+<?php
+
+use App\Http\Controllers\ProductController;;
+$total = ProductController::cartItem();
+
+?>
+
+then used this $total to print to my header page(whenever 
+am logged in ;) and display the cart total)
+
+
+Cart({{$total}})
+
+
+-------------------------
+
+16) Login and Logout 

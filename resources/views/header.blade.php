@@ -1,3 +1,11 @@
+<?php
+
+use App\Http\Controllers\ProductController;;
+$total = ProductController::cartItem();
+
+?>
+
+
 <div>
 
     <nav class="navbar navbar-default">
@@ -39,7 +47,7 @@
                     <button type="submit" class="glyphicon glyphicon-search"></button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Cart(0)</a></li>
+                    <li><a href="#">Cart({{$total}})</a></li>
 
                 </ul>
             </div><!-- /.navbar-collapse -->

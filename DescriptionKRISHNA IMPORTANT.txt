@@ -263,3 +263,105 @@ went to the header.blade.php and configured the text input to
 
 i created migration
 php artisan make:migration create_cart_table
+
+
+php artisan migrate
+
+
+-------------------------
+
+14) Putting product into cart table
+
+
+opened the detail.blade.php and did these things
+putting a post form to get the productIDInput
+and making it safe by using @csrf
+
+<form action="/addtocart" method="POST">
+        <input type="hidden" name="productIDInput" value="{{$productDetail['id']}}">
+        @csrf
+        <button>
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+        </button>
+</form>
+
+
+
+then i added these codes to the route
+
+Route::post("addtocart",[ProductController::class,'additionToCart']);
+
+then i created the controller with the additionToCart function
+
+
+    function additionToCart(Request $req)
+    {
+
+        // if logged in via session with user return a hello
+        // else redirect to homepage
+        if($req->session()->has('user'))
+        {
+            return "hello";
+
+        }
+        else
+        {
+            return redirect('/login');
+
+        }
+    }
+
+
+then to put up these data into the databse, we would need a 
+model, hence to create a model type these commands
+
+php artisan make:model Cart
+
+both the table in the database, and the model is named: cart
+hence we need to define the table manually by adding this to model:
+
+model name is Cart.php
+public $table="cart";
+
+
+then i import it inside ProductCOntroller by:
+
+use App\Models\Cart;
+
+and added these lines to the ProductController
+
+    function additionToCart(Request $req)
+    {
+
+        // if logged in via session with user return a hello
+        // else redirect to homepage
+        if($req->session()->has('user'))
+        {
+            // created a new object
+            $cart = new Cart();
+
+            $cart -> user_id = $req 
+            -> session() 
+            -> get('user')['id'];
+
+            $cart -> product_id = $req
+            -> productIDInput; 
+            
+            // productIDInput comes from the name in the form
+            // and product_id comes from the cart table 
+
+            $cart->save();
+
+            return redirect('/');
+
+        }
+        else
+        {
+            return redirect('/login');
+
+        }
+    }
+
+
+and now on adding add to cart to a product, the product goes to
+the cart

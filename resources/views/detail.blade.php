@@ -9,7 +9,7 @@
         </div>
         <div class="col-sm-6">
 
-            
+
             <a href="/">
                 <button type="button" class="btn btn-default" aria-label="Left Align">
                     <span class="glyphicon glyphicon glyphicon-home" aria-hidden="true"></span>
@@ -21,14 +21,17 @@
             <h5>Category : {{$productDetail['category']}}</h5>
             <h5>Description : {{$productDetail['description']}}</h5>
 
-            <a href="/">
-                <button type="button">
-                    <span class="glyphicon glyphicon-shopping-cart"></span>
-                </button>
-            </a>
+            <form action="/addtocart" method="POST">
+                    <input type="hidden" name="productIDInput" value="{{$productDetail['id']}}">
+                    @csrf
+                    <button>
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                    </button>
+            </form>
 
-            </br></br>
+            </br>
             <button class="btn btn-primary">Buy Now</button>
+            </br></br>
 
 
 

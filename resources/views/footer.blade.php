@@ -4,7 +4,7 @@
         <div class="panel-body">
             Panel content
         </div>
-        <div class="panel-footer">Panel footer</div>
+        <div class="panel-footer">Garden Doctors@2021</div>
     </div>
 
 </div>

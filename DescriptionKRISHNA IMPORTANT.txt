@@ -257,3 +257,9 @@ went to the header.blade.php and configured the text input to
         <input type="text" name="searchInputBox"
 
 
+-------------------------
+
+13) Making cart Table
+
+i created migration
+php artisan make:migration create_cart_table

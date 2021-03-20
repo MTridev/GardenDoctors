@@ -1,7 +1,14 @@
 <?php
 
-use App\Http\Controllers\ProductController;;
-$total = ProductController::cartItem();
+use App\Http\Controllers\ProductController;
+
+// we set the total to 0 and count it if 
+// ever there is a session
+$total = 0;
+if (Session::has('user')) {
+    $total = ProductController::cartItem();
+}
+
 
 ?>
 
@@ -47,6 +54,20 @@ $total = ProductController::cartItem();
                     <button type="submit" class="glyphicon glyphicon-search"></button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
+                    @if(Session::has('user'))
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome {{Session::get('user')['name']}}
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/logout">Logout</a></li>
+                            <li><a href="#">Page 1-2</a></li>
+                            <li><a href="#">Page 1-3</a></li>
+                        </ul>
+                    </li>
+                    @else
+                    <li><a href="/login">Login</a></li>
+                    @endif
+
                     <li><a href="#">Cart({{$total}})</a></li>
 
                 </ul>

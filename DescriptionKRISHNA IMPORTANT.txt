@@ -410,3 +410,56 @@ Cart({{$total}})
 -------------------------
 
 16) Login and Logout 
+
+
+at this point, we cant access the login page if there is no session
+(example in inconito mode).. an array error would be displayed
+
+hence to remove this problem we do these Steps
+
+in the header.blade.php, we set the total to 0 and count it if 
+ever there is a session
+
+$total = 0;
+
+
+if (Session::has('user')) {
+    $total = ProductController::cartItem();
+}
+
+
+then to display the login, or instead welcome username tabs, we use
+
+@if(Session::has('user'))
+@else
+@endif
+
+<ul class="nav navbar-nav navbar-right">
+    @if(Session::has('user'))
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome {{Session::get('user')['name']}}
+            <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="#">Page 1-2</a></li>
+            <li><a href="#">Page 1-3</a></li>
+        </ul>
+    </li>
+    @else
+    <li><a href="/login">Login</a></li>
+    @endif
+
+    <li><a href="#">Cart({{$total}})</a></li>
+
+</ul>
+
+
+create a route in web.php to go to the logout and do the function
+
+Route::get('/logout',function (){
+
+    // Erasing session from browser with forget function with
+    // key 'user'
+    Session::forget('user');
+    return redirect(('/login'));
+});

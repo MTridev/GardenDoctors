@@ -26,6 +26,17 @@ use App\Http\Controllers\ProductController;
 
 Route::view("/login","login");
 Route::post("login",[UserController::class,'login']);
+
+Route::get('/logout',function (){
+
+    // Erasing session from browser with forget function with
+    // key 'user'
+    Session::forget('user');
+    return redirect(('/login'));
+});
+
+
+
 Route::get("/",[ProductController::class,'index']);
 Route::get("detail/{id}",[ProductController::class,'detail']);
 Route::get("search",[ProductController::class,'search']);

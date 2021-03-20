@@ -41,7 +41,7 @@
     }
 
     .slider-text{
-        background-color: #2a9d8f;
+        background-color: #469E2A;
         opacity: 0.8;
     }
 

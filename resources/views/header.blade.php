@@ -60,15 +60,15 @@ if (Session::has('user')) {
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/logout">Logout</a></li>
-                            <li><a href="#">Page 1-2</a></li>
-                            <li><a href="#">Page 1-3</a></li>
+                            <li><a href="#">Bookings detail</a></li>
+                            <li><a href="#">Personal Settings</a></li>
                         </ul>
                     </li>
                     @else
+                    <li><a href="#">Register</a></li>
                     <li><a href="/login">Login</a></li>
                     @endif
-
-                    <li><a href="#">Cart({{$total}})</a></li>
+                    <li><a href="/cartlisting">Cart({{$total}})</a></li>
 
                 </ul>
             </div><!-- /.navbar-collapse -->

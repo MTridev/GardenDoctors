@@ -463,3 +463,55 @@ Route::get('/logout',function (){
     Session::forget('user');
     return redirect(('/login'));
 });
+
+
+-------------------------
+
+17) listing of cart products
+
+we created a redirection to the cart page bt
+
+
+adding this code to the header.blade.php
+<li><a href="/cartlisting">Cart({{$total}})</a></li>
+
+then created route in web.php
+Route::get("cartlisting",[ProductController::class,'cartListFunction']);
+
+then create a view called as cartlisting.blade.php, in the view (it can be copied from search.blade.php)
+
+
+then defined the function in the productCOntroller, And imported Facades
+
+it is a wrapper around non static function as static function
+meaning you can call non static function just as a static function
+use Illuminate\Support\Facades\App\DB;
+
+function cartListFunction()
+{
+    $userId = Session::get('user')['id'];
+    $productList = DB::table('cart')
+    ->join('products','cart.product_id','=','products.id')
+    ->where('cart.user_id',$userId)
+    ->select('products.*')
+    ->get();
+
+    return view('cartlisting',['products'=>$productList]);
+}
+
+
+then we need to convert the code in the cartlisting.blade.php from 
+
+ @foreach ($products as $item)
+                    <div class="searched-item">
+                        <a href="detail/{{$item['id']}}">
+
+                        to the different syntax
+
+@foreach ($products as $item)
+                    <div class="searched-item">
+                        <a href="detail/{{$item->id}}">
+
+
+
+

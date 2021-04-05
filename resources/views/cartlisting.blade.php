@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="col-sm-4">
-                            <a href="/" class="btn btn-info btn-lg">
+                            <a href="/removefromCart/{{$item->cartIdSelect}}" class="btn btn-info btn-lg">
                                 <span class="glyphicon glyphicon-remove"></span> Remove from Cart
                             </a>
                     </div>
@@ -34,6 +34,8 @@
 
 
                 </div>
+
+                <hr>
                 @endforeach
             </div>
         </div>

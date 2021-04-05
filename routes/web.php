@@ -42,5 +42,8 @@ Route::get("detail/{id}",[ProductController::class,'detail']);
 Route::get("search",[ProductController::class,'search']);
 Route::post("addtocart",[ProductController::class,'additionToCart']);
 Route::get("cartlisting",[ProductController::class,'cartListFunction']);
+Route::get("removefromCart/{id}",[ProductController::class,'removefromCartFunction']);
+
+
 
 

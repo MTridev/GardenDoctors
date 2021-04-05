@@ -515,3 +515,56 @@ then we need to convert the code in the cartlisting.blade.php from
 
 
 
+-------------------------
+
+18) remove listing of cart products
+
+in the part i added <hr> tag to put a horizontal divider in the cart listing
+
+i added the line , 'cart.id as cartIdSelect' 
+so as to select the id of the cart and assign it a variable
+called cartIdSelect, this cartIdSelect can then be used to 'get'
+the cart's id
+
+    function cartListFunction()
+    {
+        $userId = Session::get('user')['id'];
+        $productList = DB::table('cart')
+        ->join('products','cart.product_id','=','products.id')
+        ->where('cart.user_id',$userId)
+        ->select('products.*', 'cart.id as cartIdSelect')
+        ->get();
+
+        return view('cartlisting',['products'=>$productList]);
+    }
+
+
+
+
+
+then i added the href="/removefromCart/{{$item->cartIdSelect}}"
+
+<div class="col-sm-4">
+        <a href="/removefromCart/{{$item->cartIdSelect}}" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-remove"></span> Remove from Cart
+        </a>
+</div>
+
+
+then i added the route in web.php as 
+
+Route::get("removefromCart/{id}",[ProductController::class,'removefromCartFunction']);
+
+and defined the function in the ProductController, to destroy the
+the cart id from the database and redirect to the cart list
+
+The Cart Modal has been used in this function to destroy the id
+
+function removefromCartFunction($id)
+{
+    Cart::destroy($id);
+    return redirect('cartlisting');
+}
+
+
+

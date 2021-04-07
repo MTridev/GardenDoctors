@@ -34,15 +34,16 @@
 
 
   <div>
-  <form action="/action_page.php">
+  <form action="/completeCheckout" method="POST">
+  @csrf
   <div class="form-group">
-    <input type="text" class="form-control" id="email" placeholder="Enter Delivery Address">
+    <input name="customerAddress" class="form-control" placeholder="Enter Delivery Address">
   </div>
   <div class="form-group">
     <label for="paymentMethodLbl">Payment Method:</label>
 </br> 
-    <input type="radio" name="payment"> <span>Paypal</span>
-    <input type="radio" name="payment"> <span>Cash on Delivery</span>
+    <input type="radio" name="paymentMethod" value="paypal"> <span>Paypal</span>
+    <input type="radio" name="paymentMethod" value="cashOnHand"> <span>Cash on Delivery</span>
 
   </div>
 

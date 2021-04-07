@@ -44,5 +44,4 @@ Route::post("addtocart",[ProductController::class,'additionToCart']);
 Route::get("cartlisting",[ProductController::class,'cartListFunction']);
 Route::get("removefromCart/{id}",[ProductController::class,'removefromCartFunction']);
 Route::get("checkoutPage",[ProductController::class,'checkoutFunction']);
-
-
+Route::post("completeCheckout",[ProductController::class,'completeCheckoutFunction']);

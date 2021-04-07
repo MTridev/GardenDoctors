@@ -632,3 +632,73 @@ public function up()
 
 
 
+-------------------------
+
+20) Order feature part
+
+
+created the action of the post to go toward completeCheckout
+
+  <form action="/completeCheckout" method="POST">
+  <div class="form-group">
+    <input name="customerAddress" class="form-control" placeholder="Enter Delivery Address">
+  </div>
+  <div class="form-group">
+    <label for="paymentMethodLbl">Payment Method:</label>
+</br> 
+    <input type="radio" name="payment" value="paypal"> <span>Paypal</span>
+    <input type="radio" name="payment" value="cashOnHand"> <span>Cash on Delivery</span>
+
+  </div>
+
+
+
+then defined route to move to the page and its function, in web.php
+
+Route::get("completeCheckout",[ProductController::class,'completeCheckoutFunction']);
+
+
+then created a function called 'completeCheckoutFunction', 
+for the function we need the modal for Order Table as per the database
+
+
+we create it by
+
+php artisan make:model Order
+
+and disable the timestamp for this Order model by adding the line as we dont want to store this
+
+   public $timestamps=false;
+
+
+then i wrote the completeCheckoutFunction
+
+
+
+    function completeCheckoutFunction(Request $req)
+    {
+        $userId = Session::get('user')['id'];
+        $cartItems = Cart::where('user_id',$userId )->get();
+        foreach($cartItems as $cart)
+        {
+            $orderModelInstance = new Order;
+            $orderModelInstance -> product_id=$cart['product_id'];
+            $orderModelInstance -> user_id=$cart['user_id'];
+            $orderModelInstance -> status="pending";
+            $orderModelInstance -> payment_method=$req->paymentMethod;
+            $orderModelInstance -> payment_status="pending";
+            $orderModelInstance -> address=$req->customerAddress;
+            $orderModelInstance -> save();
+            Cart::where('user_id',$userId )->delete();
+        }
+        $req->input();
+        return redirect('/');
+    }
+
+-in this function
+-we get the session id, 
+-we store all the items of the cart inside of the $cartItems variable.  We use the userId to precisely choose that particular
+-id inside of the cart for example only jacob.
+-we store each data from the cart table, and save it inside the Order table, and then delete that entry from the cart table
+-finally we redirect user jacob to the homepage
+

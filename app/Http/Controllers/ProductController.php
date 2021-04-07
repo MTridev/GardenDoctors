@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
+
 use Session;
 use Illuminate\Support\Facades\DB;
 
@@ -103,6 +105,26 @@ class ProductController extends Controller
         ->sum('products.price');
 
         return view('checkoutPage',['total'=>$total]);
+    }
+
+    function completeCheckoutFunction(Request $req)
+    {
+        $userId = Session::get('user')['id'];
+        $cartItems = Cart::where('user_id',$userId )->get();
+        foreach($cartItems as $cart)
+        {
+            $orderModelInstance = new Order;
+            $orderModelInstance -> product_id=$cart['product_id'];
+            $orderModelInstance -> user_id=$cart['user_id'];
+            $orderModelInstance -> status="pending";
+            $orderModelInstance -> payment_method=$req->paymentMethod;
+            $orderModelInstance -> payment_status="pending";
+            $orderModelInstance -> address=$req->customerAddress;
+            $orderModelInstance -> save();
+            Cart::where('user_id',$userId )->delete();
+        }
+        $req->input();
+        return redirect('/');
     }
 
 

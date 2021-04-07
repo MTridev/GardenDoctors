@@ -94,6 +94,16 @@ class ProductController extends Controller
     }
 
 
+    function checkoutFunction()
+    {
+        $userId = Session::get('user')['id'];
+         $total = DB::table('cart')
+        ->join('products','cart.product_id','=','products.id')
+        ->where('cart.user_id',$userId)
+        ->sum('products.price');
+
+        return view('checkoutPage',['total'=>$total]);
+    }
 
 
 }

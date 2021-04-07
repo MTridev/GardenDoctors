@@ -65,6 +65,12 @@
     .search-box{ 
         width: 450px !important;
     }
+    .checkoutBtn{
+        margin-left: 40%;
+    }
+    .Cart-Header, .bottomBtnCheckout{
+        margin-left: 40%;
+    }
 
 </style>
 

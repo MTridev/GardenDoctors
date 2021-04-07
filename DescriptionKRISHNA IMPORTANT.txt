@@ -568,3 +568,40 @@ function removefromCartFunction($id)
 
 
 
+-------------------------
+
+19) Order Page creation
+
+
+created a route from web.php
+
+Route::get("checkoutPage",[ProductController::class,'checkoutFunction']);
+
+
+
+then created by button to redirect to checkout
+
+<div class="checkoutBtn">
+    <a href="checkoutPage">
+        <span class="glyphicon glyphicon-check" ></span> Proceed to checkout
+    </a>
+</div>
+
+then defined the function checkoutFunction Here in the productCOntroller
+
+function checkoutFunction()
+{
+    $userId = Session::get('user')['id'];
+    $total = DB::table('cart')
+    ->join('products','cart.product_id','=','products.id')
+    ->where('cart.user_id',$userId)
+    ->sum('products.price');
+
+    return view('checkoutPage',['total'=>$total]);
+}
+
+THEN CREATED A VIEW page to the checkoutPage called checkoutPage.blade.php
+
+
+
+

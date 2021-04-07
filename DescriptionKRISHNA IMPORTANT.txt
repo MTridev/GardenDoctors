@@ -603,5 +603,32 @@ function checkoutFunction()
 THEN CREATED A VIEW page to the checkoutPage called checkoutPage.blade.php
 
 
+-------------------------
+
+19) Order table creation
+
+creating migration table by
+
+php artisan make:migration create_payment_table
+
+then in that payment migration table i added the additional details
+such as prdouct id, user_id and others
+
+public function up()
+{
+    Schema::create('payment', function (Blueprint $table) {
+        $table->id();
+        $table->integer('product_id');
+        $table->integer('user_id');
+        $table->string('status');
+        $table->string('payment_method');
+        $table->string('payment_status');
+        $table->string('address');
+        $table->timestamps();
+    });
+}
+
+
+
 
 

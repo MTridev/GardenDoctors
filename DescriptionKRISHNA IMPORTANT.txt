@@ -702,3 +702,53 @@ then i wrote the completeCheckoutFunction
 -we store each data from the cart table, and save it inside the Order table, and then delete that entry from the cart table
 -finally we redirect user jacob to the homepage
 
+-------------------------
+
+21) Show my orders list
+
+IN ORDERS TABLE WE DONT HAVE NAME OF PRODUCT AND NAME OF PERSON
+
+HENCE WE NEED TO ADD THESE DETAILS BY JOINING theme
+
+FIRST i created a "/orderList" link tag for redirection
+
+created route for the link above, and the orderListFunction
+Route::get("orderList",[ProductController::class,'orderListFunction']);
+
+
+defined the orderListFunction in product controller
+
+function orderListFunction()
+{
+    $userId = Session::get('user')['id'];
+    $orders = DB::table('orders')
+    ->join('products','orders.product_id','=','products.id')
+    ->where('orders.user_id',$userId)
+    ->get();
+
+    return view('orderList',['orders'=>$orders]);
+                        // key and order of values
+
+}
+
+
+we needed to join the table so as to get the name of the product
+
+then i created a view page called orderList.blade.php
+
+
+changed the foreach loop to 
+
+@foreach ($orders as $item)
+
+
+removed the buttons of buy now, and remove from cart
+
+added address, payment_method, payment_status via the foreach loop  
+
+<h4>Address {{$item->address}}</h4>
+<h4>Payment Status {{$item->payment_status}}</h4>
+<h4>Paid by {{$item->payment_method}}</h4>
+
+
+

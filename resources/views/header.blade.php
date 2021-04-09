@@ -68,8 +68,8 @@ if (Session::has('user')) {
                     <li><a href="#">Register</a></li>
                     <li><a href="/login">Login</a></li>
                     @endif
+                    <li><a href="/orderList">Order List</a></li>
                     <li><a href="/cartlisting">Cart({{$total}})</a></li>
-
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

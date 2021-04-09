@@ -752,3 +752,64 @@ added address, payment_method, payment_status via the foreach loop
 
 
 
+-------------------------
+
+22) User Registration
+
+
+made a link in the header to redirect toward user register
+
+then created a route in the view , whereby the
+path is /register and view name is registerView
+
+Route::view('/register','registerView');
+
+then created a view called registerView.blade.php and copied
+content from login to this view as they look similar
+
+here the form takes all the name email and password and 
+the action is towards register (as per web.php)
+
+<form action='register' method='POST'>
+@csrf
+    <div class="form-group">
+        <label>User Name</label>
+        <input type="text" name="name" class="form-control"  aria-describedby="emailHelp" placeholder="Enter User name">
+    </div>
+    <div class="form-group">
+        <label>Email address</label>
+        <input type="email" name="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register now</button>
+</form>
+
+
+then added the route and the post method and the function
+Route::post("/register",[UserController::class,'registerFunction']);
+
+then defined the registerFunction in UserController
+
+function registerFunction(Request $req)
+{
+    // return $req ->input();
+    //making a new instance of user
+    $user = new User();
+    $user->name=$req->name;
+    $user->email=$req->email;
+    $user->password=Hash::make($req->password);
+    $user->save();
+    return redirect('/login');
+
+}
+
+this function creates a new instance of the user,
+$user requires username, email and password to register, 
+the$req-> comes from the form register
+this request is saved into the database called user
+and finally a redirection is done to view the login page And
+login into the dashboard

@@ -36,6 +36,9 @@ Route::get('/logout',function (){
 });
 
 
+Route::view('/register','registerView');
+
+Route::post("/register",[UserController::class,'registerFunction']);
 
 Route::get("/",[ProductController::class,'index']);
 Route::get("detail/{id}",[ProductController::class,'detail']);
@@ -46,3 +49,4 @@ Route::get("removefromCart/{id}",[ProductController::class,'removefromCartFuncti
 Route::get("checkoutPage",[ProductController::class,'checkoutFunction']);
 Route::post("completeCheckout",[ProductController::class,'completeCheckoutFunction']);
 Route::get("orderList",[ProductController::class,'orderListFunction']);
+Route::post("orderList",[ProductController::class,'orderListFunction']);

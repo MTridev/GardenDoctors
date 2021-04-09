@@ -50,3 +50,8 @@ Route::get("checkoutPage",[ProductController::class,'checkoutFunction']);
 Route::post("completeCheckout",[ProductController::class,'completeCheckoutFunction']);
 Route::get("orderList",[ProductController::class,'orderListFunction']);
 Route::post("orderList",[ProductController::class,'orderListFunction']);
+
+
+//added this code
+Route::view("/bookService","bookServiceView");
+

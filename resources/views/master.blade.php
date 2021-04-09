@@ -68,7 +68,7 @@
     .checkoutBtn{
         margin-left: 40%;
     }
-    .Cart-Header, .bottomBtnCheckout{
+    .Cart-Header, .bottomBtnCheckout , .bookServiceHeader{
         margin-left: 40%;
     }
 

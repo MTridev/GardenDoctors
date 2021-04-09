@@ -40,7 +40,7 @@ if (Session::has('user')) {
                             <li><a href="#">Outdoor Lighting</a></li>
                             <li><a href="#">Synthetic Grass</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">Book service</a></li>
+                            <li><a href="/bookService">Book service</a></li>
                         </ul>
                     </li>
 

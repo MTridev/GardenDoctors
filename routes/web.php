@@ -23,6 +23,7 @@ use App\Http\Controllers\ProductController;
 // Below are the routes and their relative function name
 // e.g detail/{id} route and its function name detail
 
+Route::view("/aboutus","aboutus");
 
 Route::view("/login","login");
 Route::post("login",[UserController::class,'login']);

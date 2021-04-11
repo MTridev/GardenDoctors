@@ -34,7 +34,21 @@ if (Session::has('user')) {
                     <li class="active"><a href="/">Home</a></li>
 
                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Product Category <span class="caret"></span></a>
+                        
+                        <ul class="dropdown-menu">
+                            <li><a href="http://127.0.0.1:8000/search?searchInputBox=fork">Forks</a></li>
+                            <li><a href="http://127.0.0.1:8000/search?searchInputBox=seed">Seed Varieties</a></li>
+                            <li><a href="http://127.0.0.1:8000/search?searchInputBox=pot">Pots</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/bookService">Book service</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
+                        
                         <ul class="dropdown-menu">
                             <li><a href="#">Lawn Caring</a></li>
                             <li><a href="#">Outdoor Lighting</a></li>
@@ -44,7 +58,7 @@ if (Session::has('user')) {
                         </ul>
                     </li>
 
-                    <li><a href="/">About Us</a></li>
+                    <li><a href="/aboutus">About Us</a></li>
 
                 </ul>
                 <form action="/search" class="navbar-form navbar-left">
@@ -60,16 +74,19 @@ if (Session::has('user')) {
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/logout">Logout</a></li>
+                            <li><a href="/orderList">Order List</a></li>
                             <li><a href="#">Bookings detail</a></li>
                             <li><a href="#">Personal Settings</a></li>
                         </ul>
                     </li>
+                    <li><a href="/cartlisting">Cart({{$total}})</a></li>
+
                     @else
                     <li><a href="/register">Register</a></li>
                     <li><a href="/login">Login</a></li>
+                    <li><a href="/employeeLogin">Employee Section</a></li>
+
                     @endif
-                    <li><a href="/orderList">Order List</a></li>
-                    <li><a href="/cartlisting">Cart({{$total}})</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

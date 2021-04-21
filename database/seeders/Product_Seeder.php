@@ -57,6 +57,27 @@ class Product_Seeder extends Seeder
                 'category' => 'seed',
                 'gallery' => 'https://www.makro.co.za/sys-master/images/h44/h34/8911459352606/silo-MIN_321237_EAA_large',
                 'description' => 'Starke Ayres  Lettuce seed',
+            ],
+            [
+                'name' => 'Landscape Lighting Package',
+                'price' => '10000',
+                'category' => 'Outdoor-Lighting-Service',
+                'gallery' => 'https://images-na.ssl-images-amazon.com/images/I/71jrO-WcyGL._AC_SL1500_.jpg',
+                'description' => 'This package includes Installation of 10 outdoor Lights',
+            ],
+            [
+                'name' => 'Gold Lawn Care Program',
+                'price' => '12000',
+                'category' => 'Lawn-care-Service',
+                'gallery' => 'https://www.bglawnservice.com/wp-content/uploads/2018/01/Blue-Grass-Lawn-Service-Guarantee.jpg',
+                'description' => 'This package includes 6 Lawn Care Visits, Specialized Soil Bionutrition, and Specialized Treatment against Insect.',
+            ],
+            [
+                'name' => 'Lawn Mowing',
+                'price' => '400',
+                'category' => 'Lawn-mowing-Service',
+                'gallery' => 'https://www.villageofmontebello.org/wp-content/uploads/grass-lawn-mower.jpg',
+                'description' => 'Mowing service for a land of about 8 perch',
             ]
         ]);
     }

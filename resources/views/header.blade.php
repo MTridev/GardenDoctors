@@ -40,8 +40,6 @@ if (Session::has('user')) {
                             <li><a href="http://127.0.0.1:8000/search?searchInputBox=fork">Forks</a></li>
                             <li><a href="http://127.0.0.1:8000/search?searchInputBox=seed">Seed Varieties</a></li>
                             <li><a href="http://127.0.0.1:8000/search?searchInputBox=pot">Pots</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="/bookService">Book service</a></li>
                         </ul>
                     </li>
 
@@ -50,9 +48,9 @@ if (Session::has('user')) {
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
                         
                         <ul class="dropdown-menu">
-                            <li><a href="#">Lawn Caring</a></li>
-                            <li><a href="#">Outdoor Lighting</a></li>
-                            <li><a href="#">Synthetic Grass</a></li>
+                            <li><a href="http://127.0.0.1:8000/search?searchInputBox=Lig">Outdoor Lighting</a></li>
+                            <li><a href="http://127.0.0.1:8000/search?searchInputBox=lawn+m">Lawn Mowing</a></li>
+                            <li><a href="http://127.0.0.1:8000/search?searchInputBox=Lawn+C">Gold Lawn Care Program</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="/bookService">Book service</a></li>
                         </ul>

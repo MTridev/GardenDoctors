@@ -52,14 +52,24 @@
     .trending-images{
         float: left;
         width: 16.5%;
+        outline-color:#469E2A;;
+        outline-style: outset;
+        margin-right: 2%;
+        margin-bottom: 2%;
+
+
 
     }
 
     .trending-block{
         margin: 5%;
+
     }
+
     .img-productDetail{
         height: 300px !important;
+        outline-color:#469E2A;;
+        outline-style: outset;
 
     }
     .search-box{ 
@@ -70,6 +80,9 @@
     }
     .Cart-Header, .bottomBtnCheckout , .bookServiceHeader{
         margin-left: 40%;
+    }
+    .footer{
+        width:100%
     }
 
 </style>

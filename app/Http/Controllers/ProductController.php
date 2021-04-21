@@ -31,7 +31,7 @@ class ProductController extends Controller
     {
 
         $data = Product::
-        where('name', 'like', '%'.$req->input('searchInputBox'). '%')->get();
+        where('category', 'like', '%'.$req->input('searchInputBox'). '%')->get();
         return view('/search',['products'=>$data]);
     }
 

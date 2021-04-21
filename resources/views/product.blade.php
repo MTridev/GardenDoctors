@@ -39,7 +39,7 @@
   </div>
 
   <div class="trending-block"> 
-    <h1>Trending Products</h1>
+    <h1>Trending Products and Services</h1>
     <div class="">
       @foreach ($products as $item)
       <div class="trending-images">

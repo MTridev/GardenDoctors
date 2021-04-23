@@ -37,7 +37,7 @@
   <form action="/completeCheckout" method="POST">
   @csrf
   <div class="form-group">
-    <input name="customerAddress" class="form-control" placeholder="Enter Delivery Address">
+    <input name="customerAddress" class="form-control" placeholder="Enter Delivery Address" required>
   </div>
   <div class="form-group">
     <label for="paymentMethodLbl">Payment Method:</label>

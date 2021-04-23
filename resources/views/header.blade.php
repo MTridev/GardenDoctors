@@ -49,8 +49,8 @@ if (Session::has('user')) {
                         
                         <ul class="dropdown-menu">
                             <li><a href="http://127.0.0.1:8000/search?searchInputBox=Lig">Outdoor Lighting</a></li>
-                            <li><a href="http://127.0.0.1:8000/search?searchInputBox=lawn+m">Lawn Mowing</a></li>
-                            <li><a href="http://127.0.0.1:8000/search?searchInputBox=Lawn+C">Gold Lawn Care Program</a></li>
+                            <li><a href="http://127.0.0.1:8000/search?searchInputBox=lawn-m">Lawn Mowing</a></li>
+                            <li><a href="http://127.0.0.1:8000/search?searchInputBox=Lawn-C">Gold Lawn Care Program</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="/bookService">Book service</a></li>
                         </ul>

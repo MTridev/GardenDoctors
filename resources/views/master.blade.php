@@ -47,11 +47,12 @@
 
     .trending-img{
         height: 100px;
+        width: 150px
     }
 
     .trending-images{
         float: left;
-        width: 16.5%;
+
         outline-color:#469E2A;;
         outline-style: outset;
         margin-right: 2%;
@@ -62,7 +63,7 @@
     }
 
     .trending-block{
-        margin: 5%;
+        margin: 1%;
 
     }
 

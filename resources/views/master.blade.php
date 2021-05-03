@@ -29,6 +29,22 @@
 
 
 <style>
+
+
+    .navbar-default{
+        width: 100%;
+    }
+
+    .navbar-collapse{
+        margin-top: 2%;
+    }
+
+    .navbar-header{
+
+        width: 10%;
+
+    }
+
     .customized-login{
         height: 500px;
         padding-top: 110px;
@@ -47,23 +63,30 @@
 
     .trending-img{
         height: 100px;
-        width: 150px
+        width: 150px;
+
     }
 
     .trending-images{
+
         float: left;
 
-        outline-color:#469E2A;;
-        outline-style: outset;
+        border-radius: 25px;
+        border: 2px solid #469E2A;
+        padding: 20px;
+        width: 200px;
+        height: 200px;
+
         margin-right: 2%;
         margin-bottom: 2%;
-
-
+        height: 250px;
+        width: 200px;
 
     }
 
     .trending-block{
         margin: 1%;
+
 
     }
 
@@ -83,7 +106,33 @@
         margin-left: 40%;
     }
     .footer{
-        width:100%
+        bottom: -10% !important;
+        width:100%;
+        position: sticky !important;
+
+    }
+
+    .homePageFooterpadding{
+        padding-bottom: 25%;
+
+    }
+    .DetailpageFooterpadding{
+        padding-bottom: 15%;
+
+    }
+
+    .Footerpadding{
+        padding-bottom: 35%;
+    }
+
+    .searchpageFooterpadding{
+        padding-bottom: 36%;
+
+    }
+
+    .aboutUspageFooterpadding{
+        padding-bottom: 8%;
+
     }
 
 </style>

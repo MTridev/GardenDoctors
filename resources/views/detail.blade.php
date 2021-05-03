@@ -40,4 +40,9 @@
 
 
 </div>
+
+
+<div class="DetailpageFooterpadding">
+
+</div>
 @endsection

@@ -25,4 +25,8 @@
                 </div>
             </div>
         </div>
+
+        <div class="searchpageFooterpadding">
+
+        </div>
         @endsection
